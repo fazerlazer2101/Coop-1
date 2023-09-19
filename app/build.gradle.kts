@@ -5,12 +5,12 @@ plugins {
 
 android {
     namespace = "com.example.coopt_1"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "com.example.coopt_1"
         minSdk = 24
-        targetSdk = 33
+        targetSdk = 34
         versionCode = 1
         versionName = "1.0"
 
@@ -33,11 +33,16 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+
+
 }
 
-dependencies {
 
-    implementation("androidx.core:core-ktx:1.9.0")
+dependencies {
+    implementation ("com.github.bumptech.glide:glide:4.16.0")
+
+    implementation("com.android.volley:volley:1.2.1")
+    implementation("androidx.core:core-ktx:1.12.0")
     implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("com.google.android.material:material:1.9.0")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
