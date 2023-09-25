@@ -2,4 +2,9 @@
     <string name="app_name">coopt-1</string>
     <string name="search_for_image">Search For Image</string>
     <string name="api_should_be_shown">Api Should be shown</string>
+    <string name="isbn">ISBN</string>
+    <string name="title">Title:</string>
+    <string name="Table_isbn">ISBN:</string>
+    <string name="Table_Date_published">Date Published:</string>
+    <string name="Table_title">Title:</string>
 </resources>
