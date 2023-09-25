@@ -68,7 +68,7 @@ class MainActivity : AppCompatActivity() {
                     }
 
 
-                    //Loads recieved image
+                    //Loads received image
                     Glide.with(this).load("https://covers.openlibrary.org/b/id/${imageId}-L.jpg").into(imageView)
                 },
                 { resultTextView.text = "That didn't work!" })
