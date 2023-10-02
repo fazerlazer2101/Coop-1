@@ -14,6 +14,7 @@ import com.android.volley.Request
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
 import com.bumptech.glide.Glide
+import com.example.coopt_1.databinding.ActivityMainBinding
 import org.json.JSONArray
 
 
@@ -21,23 +22,22 @@ class MainActivity : AppCompatActivity() {
     @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        val binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
 
         //Setting up Volley new request
         val queue = Volley.newRequestQueue(this)
-        val resultTextView: TextView = findViewById((R.id.txt_HoldApi))
+        val resultTextView: TextView = binding.txtHoldApi
         //Image items
-        val imageView:  ImageView = findViewById(R.id.img_Recieved)
+        val imageView:  ImageView = binding.imgRecieved
 
-        findViewById<Button>(R.id.btn_searchForImage).setOnClickListener()
+        binding.btnSearchForImage.setOnClickListener()
         {
             //Declare a EditText variable to hold the user input
-            val userInput: EditText
-            //Adds the user input to variable
-            userInput = findViewById(R.id.txtInput_ISBN)
+            val userInput: EditText = binding.txtInputISBN
             //Works with ISBN10 and ISBN13
-            val url = "https://openlibrary.org/isbn/${userInput.getText()}.json"
+            val url = "https://openlibrary.org/isbn/${userInput.text}.json"
 
             //Clears the imageView
             Glide.with(this).clear(imageView)
@@ -69,7 +69,7 @@ class MainActivity : AppCompatActivity() {
                     Glide.with(imageView)
                         .load("https://covers.openlibrary.org/b/id/${imageId}-L.jpg")
                         .thumbnail(Glide.with(imageView).load(loadIMG))
-                        .into(imageView);
+                        .into(imageView)
                     //Display book cover ID
                     resultTextView.text = response.getString("title")
                 },//If an error occurs in fetching the data
